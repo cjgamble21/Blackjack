@@ -3,10 +3,11 @@
 //
 
 #include <vector>
-#include <functional>
+#include <algorithm>
+#include <random>
 #include "Card.h"
 
-const std::vector<Card> deckOfCards = std::invoke([]() {
+std::vector<Card> getDeckOfCards() {
     std::vector<Card> deckToReturn;
 
     for (const Suit& suit : allSuits) {
@@ -15,5 +16,9 @@ const std::vector<Card> deckOfCards = std::invoke([]() {
         }
     }
 
+    auto rd = std::random_device {};
+    auto rng = std::default_random_engine {rd()};
+    std::ranges::shuffle(deckToReturn.begin(), deckToReturn.end(), rng);
+
     return deckToReturn;
-});
+};
