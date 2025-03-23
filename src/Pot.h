@@ -14,6 +14,7 @@ class Pot {
 public:
     explicit Pot(const std::vector<Chip>& chips);
     void addChips(const Chip&... chips);
+    unsigned int getTotal();
 };
 
 

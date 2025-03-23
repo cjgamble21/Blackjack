@@ -2,29 +2,54 @@
 // Created by cjgam on 3/22/2025.
 //
 
+#include <vector>
+
+#define SUIT_LIST \
+X(Spade)      \
+X(Club)       \
+X(Heart)      \
+X(Diamond)
+
 enum Suit {
-    Spade,
-    Club,
-    Heart,
-    Diamond
+#define X(name) name,
+    SUIT_LIST
+    #undef X
 };
 
-enum Rank {
-    One = 1,
-    Two,
-    Three,
-    Four,
-    Five,
-    Six,
-    Seven,
-    Eight,
-    Nine,
-    Ten,
-    Jack = 10,
-    Queen = 10,
-    King = 10,
-    Ace = 11
+inline const std::vector<Suit> allSuits = {
+#define X(name) name,
+    SUIT_LIST
+    #undef X
 };
+
+#define RANK_LIST \
+X(One, 1)      \
+X(Two, 2)      \
+X(Three, 3)    \
+X(Four, 4)     \
+X(Five, 5)     \
+X(Six, 6)      \
+X(Seven, 7)    \
+X(Eight, 8)    \
+X(Nine, 9)     \
+X(Ten, 10)     \
+X(Jack, 10)    \
+X(Queen, 10)   \
+X(King, 10)    \
+X(Ace, 11)
+
+enum Rank {
+#define X(name, val) name = val,
+    RANK_LIST
+    #undef X
+};
+
+inline const std::vector<Rank> allRanks = {
+#define X(name, val) name,
+    RANK_LIST
+    #undef X
+};
+
 
 enum Chip {
     Blue = 1,

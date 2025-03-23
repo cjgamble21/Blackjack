@@ -29,6 +29,9 @@ add_executable(Blackjack main.cpp
         src/Card.h
         src/enums.cpp
         src/Pot.cpp
-        src/Pot.h)
+        src/Pot.h
+        src/Player.cpp
+        src/Player.h
+        src/constants.cpp)
 
 target_link_libraries(Blackjack SDL3)
