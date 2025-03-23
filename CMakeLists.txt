@@ -24,6 +24,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SDL3)
 
-add_executable(Blackjack main.cpp)
+add_executable(Blackjack main.cpp
+        src/Card.cpp
+        src/Card.h
+        src/enums.cpp
+        src/Pot.cpp
+        src/Pot.h)
 
 target_link_libraries(Blackjack SDL3)
